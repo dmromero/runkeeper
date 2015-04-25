@@ -15,6 +15,7 @@ class WalksController < ApplicationController
   # GET /walks/new
   def new
     @walk = Walk.new
+    @users = User.all.map { |user| [user.name, user.id] }
   end
 
   # GET /walks/1/edit
@@ -69,6 +70,6 @@ class WalksController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def walk_params
-      params.require(:walk).permit(:stat, :distance, :calories, :speed, :user_id)
+      params.require(:walk).permit(:stat, :distance, :calories, :speed, :user_id, :duration)
     end
 end

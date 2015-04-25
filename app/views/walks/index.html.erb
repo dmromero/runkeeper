@@ -8,6 +8,7 @@
       <th>Calories</th>
       <th>Speed</th>
       <th>User</th>
+      <th>Duration</th>
       <th colspan="3"></th>
     </tr>
   </thead>
@@ -19,7 +20,8 @@
         <td><%= walk.distance %></td>
         <td><%= walk.calories %></td>
         <td><%= walk.speed %></td>
-        <td><%= walk.user_id %></td>
+        <td><%= walk.user.name%></td>
+        <td><%= walk.duration %></td>
         <td><%= link_to 'Show', walk %></td>
         <td><%= link_to 'Edit', edit_walk_path(walk) %></td>
         <td><%= link_to 'Destroy', walk, method: :delete, data: { confirm: 'Are you sure?' } %></td>
