@@ -1,5 +1,6 @@
 class WalksController < ApplicationController
   before_action :set_walk, only: [:show, :edit, :update, :destroy]
+  before_action :get_users, only: [:new, :create, :edit, :update]
 
   # GET /walks
   # GET /walks.json
@@ -66,6 +67,10 @@ class WalksController < ApplicationController
     # Use callbacks to share common setup or constraints between actions.
     def set_walk
       @walk = Walk.find(params[:id])
+    end
+
+    def get_users
+      @users = User.all.map { |user| [user.name, user.id] }
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.
